@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { Image } from 'vue-datocms';
+
 const route = useRoute<'projects-project'>();
 const { data, error, pending, status } = await useAsyncData('project', () =>
 	useApiQuery<ProjectQuery, ProjectQueryVariables>(ProjectDocument, { slug: route.params.project })
@@ -11,11 +13,11 @@ const project = data.value?.project;
 	<div class="project">
 		{{ route.params.project }}
 
-		<div v-if="status === 'pending'">Loading...</div>
+		<div v-if="pending">Loading...</div>
 		<div v-else-if="status === 'error'">Error: {{ error?.message }}</div>
-		<div v-else class="project">
-			<h1>{{ project?.title }}</h1>
-			<img :src="project?.thumbnail?.url" />
+		<div v-else-if="project?.thumbnail?.responsiveImage" class="project">
+			<h1>{{ project.title }}</h1>
+			<Image :data="project.thumbnail?.responsiveImage" class="image" />
 		</div>
 		<p>
 			<NuxtLink href="/">Back</NuxtLink>
@@ -34,10 +36,10 @@ p {
 	margin-top: var(--space);
 	padding: 0;
 }
-img {
+.image {
 	all: unset;
 	width: 50vw;
-	height: 30vh;
-	object-fit: contain;
+
+	object-fit: cover;
 }
 </style>
