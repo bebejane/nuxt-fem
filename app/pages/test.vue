@@ -1,15 +1,13 @@
 <script setup lang="ts">
 const color = ref('blue');
 const route = useRoute();
+
+// When accessing /posts/1, route.params.id will be 1
+console.log(route);
 </script>
 
 <template>
-	<section :class="$style.about">
-		<p>This page will be displayed at the /about route.</p>
-
-		<Paragraph>This is a paragraph</Paragraph>
-	</section>
-	<NuxtLink href="/">Home</NuxtLink>
+	<NuxtlLink href="/about">About</NuxtlLink>
 </template>
 
 <style lang="scss" module>

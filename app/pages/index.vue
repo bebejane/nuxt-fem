@@ -1,4 +1,4 @@
 <template>
 	<h1>Welcome to the homepage</h1>
-	<a href="/about">About</a>
+	<NuxtLink href="/about">About</NuxtLink>
 </template>
