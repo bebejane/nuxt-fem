@@ -50,6 +50,7 @@ html {
 
 main {
 	display: block;
+	padding: 2rem;
 }
 
 article {
@@ -87,7 +88,9 @@ a {
 	color: var(--foreground);
 	transition: var(--color-transtion);
 }
-
+ul {
+	list-style: none;
+}
 .button {
 	display: flex;
 	align-items: center;
