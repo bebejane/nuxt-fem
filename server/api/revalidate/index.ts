@@ -10,7 +10,7 @@ export default defineEventHandler(async (event) => {
 	console.log(api_key, paths);
 	for (const path of paths) await invalidate(path);
 
-	return body;
+	return { revalidated: true, paths };
 });
 
 async function invalidate(path: string) {
