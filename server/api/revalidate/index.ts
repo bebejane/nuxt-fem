@@ -15,10 +15,11 @@ export default defineEventHandler(async (event) => {
 
 async function invalidate(path: string) {
 	const res = await fetch(`${process.env.SITE_URL}${path}`, {
-		method: 'HEAD',
+		method: 'POST',
 		headers: {
 			'x-prerender-revalidate': process.env.REVALIDATE_KEY as string,
 		},
+		body: '{}',
 	});
 
 	if (res.status !== 200) {
