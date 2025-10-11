@@ -6,7 +6,7 @@ export default defineEventHandler(async (event) => {
 
 	const slug = entity.attributes?.slug;
 
-	const paths: string[] = [`/projects/${slug}`];
+	const paths: string[] = [`/projects/${slug}`, '/'];
 	console.log(api_key, paths);
 	for (const path of paths) await invalidate(path);
 
