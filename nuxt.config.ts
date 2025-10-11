@@ -3,6 +3,11 @@ export default defineNuxtConfig({
 	compatibilityDate: '2025-07-15',
 	devtools: { enabled: true },
 	css: ['~/assets/styles/index.scss'],
+	$production: {
+		routeRules: {
+			'/**': { isr: true },
+		},
+	},
 	experimental: {
 		typedPages: true,
 	},
@@ -14,4 +19,12 @@ export default defineNuxtConfig({
 			apiToken: process.env.PUBLIC_DATOCMS_API_TOKEN,
 		},
 	},
+	nitro: {
+		vercel: {
+			config: {
+				bypassToken: process.env.REVALIDATE_KEY,
+			},
+		},
+	},
+	modules: ['@nuxt/eslint'],
 });

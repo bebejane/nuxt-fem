@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const { data, error, pending, status } = await useAsyncData('allProjects', () =>
-	useApiQuery<AllProjectsQuery, AllProjectsQueryVariables>(AllProjectsDocument)
+	useApiQuery<AllProjectsQuery>(AllProjectsDocument)
 );
 </script>
 <template>

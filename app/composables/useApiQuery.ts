@@ -5,7 +5,7 @@ export type ApiQueryOptions = ExecuteQueryOptions & { all?: boolean };
 
 const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
-export const useApiQuery = async <T, V>(
+export const useApiQuery = async <T, V = void>(
 	query: DocumentNode,
 	variables?: ExecuteQueryOptions<V>['variables'],
 	options?: ExecuteQueryOptions<V>
