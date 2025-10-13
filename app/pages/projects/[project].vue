@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { Image } from 'vue-datocms';
+import VueMarkdown from 'vue-markdown-render';
 
 const route = useRoute<'projects-project'>();
+
 const { data, error, pending, status } = await useAsyncData('project', () =>
 	useApiQuery<ProjectQuery, ProjectQueryVariables>(ProjectDocument, { slug: route.params.project })
 );
@@ -18,9 +19,10 @@ const project = data.value?.project;
 		<div v-else-if="project?.thumbnail?.responsiveImage" class="project">
 			<h1>{{ project.title }}</h1>
 			<Image :data="project.thumbnail?.responsiveImage" class="image" />
+			<VueMarkdown :source="project.caption ?? ''" class="caption" />
 		</div>
 		<p>
-			<NuxtLink href="/">Back</NuxtLink>
+			<NuxtLink href="/" class="back">Back</NuxtLink>
 		</p>
 	</div>
 </template>
@@ -32,14 +34,31 @@ const project = data.value?.project;
 	align-items: center;
 	justify-content: center;
 }
+.caption {
+	font-size: 2rem;
+	color: var(--black);
+}
 p {
 	margin-top: var(--space);
 	padding: 0;
 }
+
 .image {
 	all: unset;
 	width: 50vw;
-
 	object-fit: cover;
+}
+
+.back {
+	all: unset;
+	display: block;
+	text-decoration: none;
+	background-color: var(--white);
+	border: 2px solid var(--black);
+	padding: 1rem;
+	width: 260px;
+	border-radius: 1rem;
+	text-align: center;
+	cursor: pointer;
 }
 </style>

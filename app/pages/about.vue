@@ -6,8 +6,7 @@ const route = useRoute();
 <template>
 	<section :class="$style.about">
 		<p>This page will be displayed at the /about route.</p>
-
-		<Paragraph>This is a paragraph</Paragraph>
+		<Paragraph :cls="$style.para" name="hojas">This is a paragraph</Paragraph>
 	</section>
 	<NuxtLink href="/">Home</NuxtLink>
 </template>
@@ -26,5 +25,11 @@ const route = useRoute();
 		color: v-bind(color);
 		background-color: red;
 	}
+}
+</style>
+<style lang="scss" module>
+.para {
+	font-size: 4rem !important;
+	color: var(--white) !important;
 }
 </style>

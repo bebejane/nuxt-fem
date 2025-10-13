@@ -1,8 +1,24 @@
 {
   "files.exclude": {
-    "node_modules": false,
-    ".nuxt": false,
-    ".vscode": false,
-    ".output": false
-  }
+    "node_modules": true,
+    ".nuxt": true,
+    ".vscode": true,
+    ".output": true
+  },
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
+  "editor.quickSuggestions": {
+    "strings": "on"
+  },
+  "tailwindCSS.classAttributes": [
+    "class",
+    "ui"
+  ],
+  "tailwindCSS.experimental.classRegex": [
+    [
+      "ui:\\s*{([^)]*)\\s*}",
+      "(?:'|\"|`)([^']*)(?:'|\"|`)"
+    ]
+  ]
 }

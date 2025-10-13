@@ -1,5 +1,5 @@
-query AllProjects($first: IntType, $skip: IntType) {
-	allProjects(first: $first, skip: $skip, orderBy: position_ASC) {
+query AllProjects($first: IntType = 500, $skip: IntType) {
+	allProjects(first: $first, skip: $skip, orderBy: title_ASC) {
 		...ProjectFragment
 	}
 	_allProjectsMeta {

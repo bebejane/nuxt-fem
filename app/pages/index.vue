@@ -8,7 +8,7 @@ const { data, error, pending, status } = await useAsyncData('allProjects', () =>
 	<pre v-else-if="status === 'error'">Error: {{ JSON.stringify(error, null, 2) }}</pre>
 	<ul v-else v-for="project in data?.allProjects">
 		<li>
-			<NuxtLink :href="`/projects/${project.slug}`">{{ project.title }}</NuxtLink>
+			<NuxtLink :to="`/projects/${project.slug}`">{{ project.title }}</NuxtLink>
 		</li>
 	</ul>
 </template>
