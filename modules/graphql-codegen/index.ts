@@ -12,6 +12,7 @@ export default defineNuxtModule<CodegenModuleOptions>({
 		configKey: 'graphqlCodegen',
 	},
 	async setup(options: CodegenModuleOptions, nuxt: Nuxt) {
+		//console.log(options.config);
 		async function generateCode() {
 			const config = defu(
 				options,
@@ -25,26 +26,32 @@ export default defineNuxtModule<CodegenModuleOptions>({
 		}
 		nuxt.hook('builder:watch', generateCode);
 	},
-	/*moduleDependencies: {
+	moduleDependencies: {
 		'@graphql-codegen/cli': {
 			version: '>=5',
+			optional: true,
 		},
 		'@graphql-codegen/typed-document-node': {
 			version: '>=5',
+			optional: true,
 		},
 		'@graphql-codegen/typescript': {
 			version: '>=4',
+			optional: true,
 		},
 		'@graphql-codegen/typescript-graphql-files-modules': {
 			version: '>=3',
+			optional: true,
 		},
 		'@graphql-codegen/typescript-operations': {
 			version: '>=4.5',
+			optional: true,
 		},
 		'defu': {
 			version: '>=6',
+			optional: true,
 		},
-	},*/
+	},
 });
 
 const defaultModuleConfig = {
