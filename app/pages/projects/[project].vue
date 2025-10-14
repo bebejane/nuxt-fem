@@ -1,8 +1,6 @@
 <script setup lang="ts">
-import VueMarkdown from 'vue-markdown-render';
-
 const route = useRoute<'projects-project'>();
-
+formatDate('asdsa', 'en-US');
 const { data, error, pending, status } = await useAsyncData('project', () =>
 	useApiQuery<ProjectQuery, ProjectQueryVariables>(ProjectDocument, { slug: route.params.project })
 );
@@ -19,7 +17,7 @@ const project = data.value?.project;
 		<div v-else-if="project?.thumbnail?.responsiveImage" class="project">
 			<h1>{{ project.title }}</h1>
 			<Image :data="project.thumbnail?.responsiveImage" class="image" />
-			<VueMarkdown :source="project.caption ?? ''" class="caption" />
+			<Markdown :source="project.caption ?? ''" class="caption" />
 		</div>
 		<p>
 			<NuxtLink href="/" class="back">Back</NuxtLink>
@@ -35,7 +33,8 @@ const project = data.value?.project;
 	justify-content: center;
 }
 .caption {
-	font-size: 2rem;
+	font-size: 1rem;
+	margin-top: var(--space);
 	color: var(--black);
 }
 p {

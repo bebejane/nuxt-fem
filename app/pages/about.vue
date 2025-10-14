@@ -1,14 +1,13 @@
 <script setup lang="ts">
 const color = ref('blue');
-const route = useRoute();
 </script>
 
 <template>
 	<section :class="$style.about">
 		<p>This page will be displayed at the /about route.</p>
 		<Paragraph :cls="$style.para" name="hojas">This is a paragraph</Paragraph>
+		<NuxtLink to="/">Home</NuxtLink>
 	</section>
-	<NuxtLink href="/">Home</NuxtLink>
 </template>
 
 <style lang="scss" module>

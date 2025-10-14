@@ -5,14 +5,12 @@
 	"scripts": {
 		"build": "nuxt build",
 		"dev": "nuxt dev",
+		"cleanup": "rm -rf node_modules && rm -rf .nuxt && pnpm i && pnpm dev",
 		"generate": "nuxt generate",
 		"preview": "nuxt preview",
-		"codegen": "graphql-codegen --watch",
 		"postinstall": "nuxt prepare"
 	},
 	"dependencies": {
-		"@datocms/cda-client": "^0.2.7",
-		"@graphql-typed-document-node/core": "^3.2.0",
 		"@nuxt/eslint": "1.9.0",
 		"@pinia/nuxt": "0.11.2",
 		"dotenv": "^17.2.3",
@@ -22,24 +20,11 @@
 		"reka-ui": "^2.5.1",
 		"valibot": "^1.1.0",
 		"vue": "^3.5.22",
-		"vue-datocms": "8.1.4",
-		"vue-markdown-render": "^2.3.0",
+		"vue-datocms": "^8.1.4",
 		"vue-router": "^4.5.1"
 	},
 	"packageManager": "pnpm@10.18.2+sha512.9fb969fa749b3ade6035e0f109f0b8a60b5d08a1a87fdf72e337da90dcc93336e2280ca4e44f2358a649b83c17959e9993e777c2080879f3801e6f0d999ad3dd",
 	"devDependencies": {
-		"@element-plus/nuxt": "^1.1.4",
-		"@graphql-codegen/cli": "^5.0.7",
-		"@graphql-codegen/typed-document-node": "^5.1.2",
-		"@graphql-codegen/typescript": "^4.1.6",
-		"@graphql-codegen/typescript-graphql-files-modules": "^3.0.1",
-		"@graphql-codegen/typescript-operations": "^4.6.1",
-		"@parcel/watcher": "^2.5.1",
-		"@types/markdown-it": "^14.1.2",
-		"element-plus": "^2.11.4",
-		"graphql": "^16.11.0",
-		"sass": "^1.93.2",
-		"sass-loader": "^16.0.5",
 		"ts-node": "^10.9.2",
 		"typescript": "^5.9.3",
 		"unplugin-vue-router": "^0.15.0"

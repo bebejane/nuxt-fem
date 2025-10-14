@@ -4,11 +4,13 @@ const { data, error, pending, status } = await useAsyncData('allProjects', () =>
 );
 </script>
 <template>
-	<div v-if="status === 'pending'">Loading...</div>
+	<div v-if="pending">Loading...</div>
 	<pre v-else-if="status === 'error'">Error: {{ JSON.stringify(error, null, 2) }}</pre>
-	<ul v-else v-for="project in data?.allProjects">
-		<li>
-			<NuxtLink :to="`/projects/${project.slug}`">{{ project.title }}</NuxtLink>
-		</li>
-	</ul>
+	<div v-else>
+		<ul v-for="project in data?.allProjects" :key="project.id">
+			<li>
+				<NuxtLink :to="`/projects/${project.slug}`">{{ project.title }}</NuxtLink>
+			</li>
+		</ul>
+	</div>
 </template>
