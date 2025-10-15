@@ -1,8 +1,13 @@
 <script setup lang="ts">
 const route = useRoute<'projects-project'>();
-const { data, error, pending, status } = await useAsyncData('project', () =>
-	useApiQuery<ProjectQuery, ProjectQueryVariables>(ProjectDocument, { slug: route.params.project })
+const { data, error, pending, status } = await useApiQuery<ProjectQuery, ProjectQueryVariables>(
+	'project',
+	ProjectDocument,
+	{
+		variables: { slug: route.params.project },
+	}
 );
+
 const project = data.value?.project;
 </script>
 
