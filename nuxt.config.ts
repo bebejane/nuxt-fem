@@ -1,7 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 
 export default defineNuxtConfig({
-	extends: [['github:bebejane/kt-nuxt-datocms', { install: true }]],
+	extends: [['github:bebejane/kt-nuxt-datocms']],
 	css: ['~/assets/styles/index.scss'],
 	app: {
 		head: {
