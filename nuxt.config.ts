@@ -19,5 +19,32 @@ export default defineNuxtConfig({
 			link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
 		},
 	},
-	modules: ['@nuxt/eslint', 'reka-ui/nuxt', '@pinia/nuxt'],
+	modules: ['@nuxt/eslint', 'reka-ui/nuxt', '@pinia/nuxt', '@vueuse/nuxt', '@nuxtjs/i18n'],
+	i18n: {
+		defaultLocale: 'en',
+		strategy: 'prefix_except_default',
+		locales: [
+			{ code: 'en', name: 'English', file: 'en.json' },
+			{ code: 'sv', name: 'Svenska', file: 'sv.json' },
+		],
+		customRoutes: 'config', // disable custom route with page components
+		pages: {
+			'about': {
+				en: '/about', // -> accessible at /about-us (no prefix since it's the default locale)
+				sv: '/om-oss', // -> accessible at /om-oss
+			},
+			'form': {
+				en: '/form', // -> accessible at /form
+				sv: '/form', // -> accessible at /form
+			},
+			'index': {
+				en: '/', // -> accessible at /
+				sv: '/', // -> accessible at /
+			},
+			'projects-project': {
+				en: '/projects/[project]', // -> accessible at /projects/my-project
+				sv: '/projekt/[project]', // -> accessible at /projekt/mitt-projekt
+			},
+		},
+	},
 });

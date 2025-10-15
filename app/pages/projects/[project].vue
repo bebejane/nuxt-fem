@@ -1,10 +1,12 @@
 <script setup lang="ts">
-const route = useRoute<'projects-project'>();
+const localeRoute = useLocaleRoute();
+const slug = localeRoute('projects-project').params.project;
+
 const { data, error, pending, status } = await useApiQuery<ProjectQuery, ProjectQueryVariables>(
 	'project',
 	ProjectDocument,
 	{
-		variables: { slug: route.params.project },
+		variables: { slug },
 	}
 );
 
@@ -13,8 +15,7 @@ const project = data.value?.project;
 
 <template>
 	<div class="project">
-		{{ route.params.project }}
-
+		{{ slug }}
 		<div v-if="pending">Loading...</div>
 		<div v-else-if="status === 'error'">Error: {{ error?.message }}</div>
 		<div v-else-if="project?.thumbnail?.responsiveImage" class="project">
@@ -23,7 +24,7 @@ const project = data.value?.project;
 			<Markdown :source="project.caption ?? ''" class="caption" />
 		</div>
 		<p>
-			<NuxtLink href="/" class="back">Back</NuxtLink>
+			<NuxtLinkLocale href="/" class="back">Back</NuxtLinkLocale>
 		</p>
 	</div>
 </template>
