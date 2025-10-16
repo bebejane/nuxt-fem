@@ -1,6 +1,6 @@
 import { ItemTypeDefinition } from '@datocms/cma-client';
 type EnvironmentSettings = {
-  locales: 'en';
+  locales: 'en' | 'sv';
 };
 export type Post = ItemTypeDefinition<
   EnvironmentSettings,
@@ -8,6 +8,7 @@ export type Post = ItemTypeDefinition<
   {
     title: {
       type: 'string';
+      localized: true;
     };
     background: {
       type: 'color';
@@ -17,9 +18,11 @@ export type Post = ItemTypeDefinition<
     };
     content: {
       type: 'text';
+      localized: true;
     };
     structured_content: {
       type: 'structured_text';
+      localized: true;
     };
     image: {
       type: 'file';
@@ -32,6 +35,7 @@ export type Post = ItemTypeDefinition<
     };
     slug: {
       type: 'slug';
+      localized: true;
     };
     approve: {
       type: 'boolean';
