@@ -27,12 +27,14 @@ export default defineNuxtConfig({
     "@nuxtjs/i18n",
   ],
   i18n: {
+    baseUrl: "http://localhost:3000",
     defaultLocale: "en",
     strategy: "prefix_except_default",
     locales: [
       { code: "en", name: "English", file: "en.json" },
       { code: "sv", name: "Svenska", file: "sv.json" },
     ],
+    autoDeclare: true,
     customRoutes: "config", // disable custom route with page components
     pages: {
       about: {
@@ -47,7 +49,7 @@ export default defineNuxtConfig({
         en: "/", // -> accessible at /
         sv: "/", // -> accessible at /
       },
-      "posts-post": {
+      "posts/[post]": {
         en: "/posts/[post]", // -> accessible at /posts/my-post
         sv: "/poster/[post]", // -> accessible at /projekt/mitt-projekt
       },

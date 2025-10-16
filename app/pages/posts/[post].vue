@@ -1,16 +1,23 @@
 <script setup lang="ts">
-  const { locale } = useI18n();
+  const setI18nParams = useSetI18nParams();
+  const locale = useI18n().locale.value as SiteLocale;
   const localeRoute = useLocaleRoute();
   const slug = localeRoute("posts-post").params.post;
 
   const { data, error, pending, status } = await useApiQuery<
     PostQuery,
     PostQueryVariables
-  >(`post-${locale.value}`, PostDocument, {
-    variables: { slug, locale: locale.value as SiteLocale },
+  >(`post-${locale}`, PostDocument, {
+    variables: { slug, locale },
   });
 
   const post = data?.value?.post;
+
+  setI18nParams({
+    en: { post: post?.slugs?.find((s) => s.locale === "en")?.value },
+    sv: { post: post?.slugs?.find((s) => s.locale === "sv")?.value },
+  });
+  console.log(post?.structuredContent);
 </script>
 
 <template>
@@ -34,6 +41,9 @@
       :source="post.content"
       :class="$style.content"
     />
+
+    <h3>Structured text</h3>
+    <StructuredText :data="post?.structuredContent as any" />
     <div :class="$style.slug">Slug: {{ slug }}</div>
     <p>
       <NuxtLinkLocale href="/" :class="$style.back">Back</NuxtLinkLocale>
@@ -77,9 +87,8 @@
     border-radius: 100px;
   }
   .image {
-    width: 50vw;
     height: 50vh;
-    object-fit: contain;
+    object-fit: cover;
     border-radius: 100px;
   }
 

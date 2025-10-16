@@ -1,10 +1,6 @@
 query AllPosts($first: IntType = 10, $skip: IntType = 0, $locale: SiteLocale) {
   allPosts(first: $first, skip: $skip, locale: $locale) {
-    id
-    slug
-    title
-    createdAt
-    updatedAt
+    ...PostFragment
   }
   _allPostsMeta {
     count
@@ -12,15 +8,33 @@ query AllPosts($first: IntType = 10, $skip: IntType = 0, $locale: SiteLocale) {
 }
 
 query Post($slug: String!, $locale: SiteLocale) {
-  post(filter: { slug: { eq: $slug } }, locale: $locale) {
-    id
-    title
-    slug
-    image {
-      ...ImageFragment
-    }
-    content(markdown: false)
-    createdAt
-    updatedAt
+  post(locale: $locale, filter: { slug: { eq: $slug } }) {
+    ...PostFragment
   }
+}
+fragment PostFragment on PostRecord {
+  id
+  title
+  slug
+  slugs: _allSlugLocales {
+    locale
+    value
+  }
+  image {
+    ...ImageFragment
+  }
+  content(markdown: false)
+  structuredContent {
+    blocks {
+      ... on PageRecord {
+        id
+        intro
+        title
+      }
+    }
+    links
+    value
+  }
+  createdAt
+  updatedAt
 }

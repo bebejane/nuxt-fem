@@ -58,6 +58,7 @@ declare module '*/post.gql' {
   const defaultDocument: DocumentNode;
   export const AllPosts: DocumentNode;
 export const Post: DocumentNode;
+export const PostFragment: DocumentNode;
 
   export default defaultDocument;
 }
