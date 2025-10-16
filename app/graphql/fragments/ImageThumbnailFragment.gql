@@ -1,17 +1,25 @@
 fragment ImageThumbnailFragment on FileField {
-	id
-	mimeType
-	url
-	title
-	alt
-	height
-	width
-	responsiveImage(imgixParams: { q: 80, h: 400, ar: "16:9", fit: crop, sharp: 80 }) {
-		src
-		width
-		height
-		alt
-		title
-		base64
-	}
+  alt
+  basename
+  format
+  height
+  id
+  mimeType
+  size
+  title
+  url
+  width
+  responsiveImage(imgixParams: {w: 800, q:50, auto:format}){
+    alt
+    aspectRatio
+    base64
+    bgColor
+    height
+    sizes
+    src
+    srcSet
+    webpSrcSet
+    title
+    width
+  }  
 }

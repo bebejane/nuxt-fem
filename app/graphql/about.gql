@@ -1,9 +1,0 @@
-query About {
-	about {
-		id
-		intro(markdown: false)
-		image {
-			...ImageFragment
-		}
-	}
-}

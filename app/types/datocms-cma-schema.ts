@@ -2,45 +2,155 @@ import { ItemTypeDefinition } from '@datocms/cma-client';
 type EnvironmentSettings = {
   locales: 'en';
 };
-export type Commisioner = ItemTypeDefinition<
+export type Post = ItemTypeDefinition<
   EnvironmentSettings,
-  '1577573',
-  {
-    name: {
-      type: 'string';
-    };
-  }
->;
-export type Project = ItemTypeDefinition<
-  EnvironmentSettings,
-  '1578011',
+  '520129',
   {
     title: {
       type: 'string';
     };
-    category: {
-      type: 'string';
-    };
-    slide: {
-      type: 'rich_text';
-      blocks: ImageSlide | VideoSlide;
-    };
-    thumbnail: {
-      type: 'file';
-    };
-    color: {
-      type: 'color';
-    };
     background: {
       type: 'color';
     };
-    caption: {
+    password: {
+      type: 'string';
+    };
+    content: {
       type: 'text';
     };
-    caption_style: {
+    structured_content: {
+      type: 'structured_text';
+    };
+    image: {
+      type: 'file';
+    };
+    link: {
+      type: 'link';
+    };
+    author: {
+      type: 'link';
+    };
+    slug: {
+      type: 'slug';
+    };
+    approve: {
+      type: 'boolean';
+    };
+    audio: {
+      type: 'file';
+    };
+  }
+>;
+export type Page = ItemTypeDefinition<
+  EnvironmentSettings,
+  '876485',
+  {
+    title: {
+      type: 'string';
+    };
+    intro: {
+      type: 'text';
+    };
+  }
+>;
+export type ExternalLink = ItemTypeDefinition<
+  EnvironmentSettings,
+  'A2G1FbVwRweKAL6vsjH6tA',
+  {
+    title: {
       type: 'string';
     };
     url: {
+      type: 'string';
+    };
+  }
+>;
+export type Config = ItemTypeDefinition<
+  EnvironmentSettings,
+  'A-gIlC0WSD-KsVp4JDJZpA',
+  {
+    page_size: {
+      type: 'integer';
+    };
+  }
+>;
+export type Start = ItemTypeDefinition<
+  EnvironmentSettings,
+  'EDSrTw81QlK2PiluP8Fnsw',
+  {
+    headline: {
+      type: 'string';
+    };
+    posts: {
+      type: 'links';
+    };
+  }
+>;
+export type Price = ItemTypeDefinition<
+  EnvironmentSettings,
+  'I3HUKldlQFO3nb4IyjUGYw',
+  {
+    amount: {
+      type: 'integer';
+    };
+    currency: {
+      type: 'link';
+    };
+  }
+>;
+export type Product = ItemTypeDefinition<
+  EnvironmentSettings,
+  'SPVCRSyTQfWakx9Kpd3YoA',
+  {
+    title: {
+      type: 'string';
+    };
+    price: {
+      type: 'links';
+    };
+    shopify_id: {
+      type: 'string';
+    };
+  }
+>;
+export type Currency = ItemTypeDefinition<
+  EnvironmentSettings,
+  'dyrTB7hoQKCgXE4tHM2Rhg',
+  {
+    code: {
+      type: 'string';
+    };
+  }
+>;
+export type InternalLink = ItemTypeDefinition<
+  EnvironmentSettings,
+  'ypczN77NRCWMOEX7fAbQRQ',
+  {
+    title: {
+      type: 'string';
+    };
+    record: {
+      type: 'link';
+    };
+  }
+>;
+export type Author = ItemTypeDefinition<
+  EnvironmentSettings,
+  'zqfriQurTreZRr6icMacKA',
+  {
+    name: {
+      type: 'string';
+    };
+    json: {
+      type: 'json';
+    };
+  }
+>;
+export type Menu = ItemTypeDefinition<
+  EnvironmentSettings,
+  '4DybDCL-TYK2JK9GyXvEEQ',
+  {
+    title: {
       type: 'string';
     };
     slug: {
@@ -51,167 +161,16 @@ export type Project = ItemTypeDefinition<
     };
   }
 >;
-export type Video = ItemTypeDefinition<
-  EnvironmentSettings,
-  '1578012',
-  {
-    video: {
-      type: 'file';
-    };
-    poster: {
-      type: 'file';
-    };
-    background_image: {
-      type: 'file';
-    };
-  }
->;
-export type ImageOld = ItemTypeDefinition<
-  EnvironmentSettings,
-  '1578017',
-  {
-    image: {
-      type: 'file';
-    };
-    background_image: {
-      type: 'file';
-    };
-    layout: {
-      type: 'string';
-    };
-  }
->;
-export type ImageDouble = ItemTypeDefinition<
-  EnvironmentSettings,
-  '1578585',
-  {
-    images: {
-      type: 'gallery';
-    };
-    background_image: {
-      type: 'file';
-    };
-  }
->;
-export type ImageQuad = ItemTypeDefinition<
-  EnvironmentSettings,
-  '1578868',
-  {
-    images: {
-      type: 'gallery';
-    };
-    image_mobile: {
-      type: 'file';
-    };
-  }
->;
-export type ImageSlide = ItemTypeDefinition<
-  EnvironmentSettings,
-  '1588471',
-  {
-    images: {
-      type: 'rich_text';
-      blocks: Image;
-    };
-    layout: {
-      type: 'string';
-    };
-    background_repeat: {
-      type: 'string';
-    };
-    background_image: {
-      type: 'file';
-    };
-    css: {
-      type: 'text';
-    };
-  }
->;
-export type VideoSlide = ItemTypeDefinition<
-  EnvironmentSettings,
-  '1588472',
-  {
-    video: {
-      type: 'file';
-    };
-    poster: {
-      type: 'file';
-    };
-    background_image: {
-      type: 'file';
-    };
-    background: {
-      type: 'color';
-    };
-    css: {
-      type: 'text';
-    };
-  }
->;
-export type Image = ItemTypeDefinition<
-  EnvironmentSettings,
-  '1588473',
-  {
-    image: {
-      type: 'file';
-    };
-    background: {
-      type: 'color';
-    };
-    layout: {
-      type: 'string';
-    };
-  }
->;
-export type About = ItemTypeDefinition<
-  EnvironmentSettings,
-  '1781513',
-  {
-    image: {
-      type: 'file';
-    };
-    intro: {
-      type: 'text';
-    };
-  }
->;
-export type Artist = ItemTypeDefinition<
-  EnvironmentSettings,
-  'IYARWXIEQniYMp7Cd50ZBA',
-  {
-    name: {
-      type: 'string';
-    };
-  }
->;
-export type LpRecord = ItemTypeDefinition<
-  EnvironmentSettings,
-  'LKAckZRwRg2ejgzCC289RA',
-  {
-    title: {
-      type: 'string';
-    };
-    cover: {
-      type: 'file';
-    };
-    text: {
-      type: 'structured_text';
-    };
-    vit_rubrik: {
-      type: 'boolean';
-    };
-    artist: {
-      type: 'link';
-    };
-  }
->;
-export type AnyBlock =
-  | Video
-  | ImageOld
-  | ImageDouble
-  | ImageQuad
-  | ImageSlide
-  | VideoSlide
-  | Image;
-export type AnyModel = Commisioner | Project | About | Artist | LpRecord;
+export type AnyBlock = Page;
+export type AnyModel =
+  | Post
+  | ExternalLink
+  | Config
+  | Start
+  | Price
+  | Product
+  | Currency
+  | InternalLink
+  | Author
+  | Menu;
 export type AnyBlockOrModel = AnyBlock | AnyModel;

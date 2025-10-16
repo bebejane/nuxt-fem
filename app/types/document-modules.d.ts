@@ -1,40 +1,4 @@
 
-declare module '*/about.gql' {
-  import { DocumentNode } from 'graphql';
-  const defaultDocument: DocumentNode;
-  export const About: DocumentNode;
-
-  export default defaultDocument;
-}
-    
-
-declare module '*/commisioner.gql' {
-  import { DocumentNode } from 'graphql';
-  const defaultDocument: DocumentNode;
-  export const AllCommisioners: DocumentNode;
-
-  export default defaultDocument;
-}
-    
-
-declare module '*/ColorFragment.gql' {
-  import { DocumentNode } from 'graphql';
-  const defaultDocument: DocumentNode;
-  export const ColorFragment: DocumentNode;
-
-  export default defaultDocument;
-}
-    
-
-declare module '*/FileFragment.gql' {
-  import { DocumentNode } from 'graphql';
-  const defaultDocument: DocumentNode;
-  export const FileFragment: DocumentNode;
-
-  export default defaultDocument;
-}
-    
-
 declare module '*/ImageFragment.gql' {
   import { DocumentNode } from 'graphql';
   const defaultDocument: DocumentNode;
@@ -53,28 +17,19 @@ declare module '*/ImageThumbnailFragment.gql' {
 }
     
 
-declare module '*/MediaFragment.gql' {
-  import { DocumentNode } from 'graphql';
-  const defaultDocument: DocumentNode;
-  export const MediaFragment: DocumentNode;
-
-  export default defaultDocument;
-}
-    
-
-declare module '*/ResponsiveImageFragment.gql' {
-  import { DocumentNode } from 'graphql';
-  const defaultDocument: DocumentNode;
-  export const ResponsiveImageFragment: DocumentNode;
-
-  export default defaultDocument;
-}
-    
-
 declare module '*/SEOFragment.gql' {
   import { DocumentNode } from 'graphql';
   const defaultDocument: DocumentNode;
   export const SEOFragment: DocumentNode;
+
+  export default defaultDocument;
+}
+    
+
+declare module '*/SiteFragment.gql' {
+  import { DocumentNode } from 'graphql';
+  const defaultDocument: DocumentNode;
+  export const SiteFragment: DocumentNode;
 
   export default defaultDocument;
 }
@@ -93,19 +48,16 @@ declare module '*/global.gql' {
   import { DocumentNode } from 'graphql';
   const defaultDocument: DocumentNode;
   export const Global: DocumentNode;
-export const SiteFragment: DocumentNode;
 
   export default defaultDocument;
 }
     
 
-declare module '*/project.gql' {
+declare module '*/post.gql' {
   import { DocumentNode } from 'graphql';
   const defaultDocument: DocumentNode;
-  export const AllProjects: DocumentNode;
-export const Project: DocumentNode;
-export const ProjectById: DocumentNode;
-export const ProjectFragment: DocumentNode;
+  export const AllPosts: DocumentNode;
+export const Post: DocumentNode;
 
   export default defaultDocument;
 }
