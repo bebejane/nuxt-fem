@@ -11,6 +11,8 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@kt-nuxt-datocms/base": "github:bebejane/kt-nuxt-datocms#path:packages/base",
+    "@kt-nuxt-datocms/i18n": "github:bebejane/kt-nuxt-datocms#path:packages/i18n",
     "@nuxt/eslint": "1.9.0",
     "@pinia/nuxt": "0.11.2",
     "@vueuse/nuxt": "13.9.0",
@@ -21,11 +23,9 @@
     "reka-ui": "^2.5.1",
     "valibot": "^1.1.0",
     "vue": "^3.5.22",
-    "vue-router": "^4.5.1",
-    "@kt-nuxt-datocms/base": "github:bebejane/kt-nuxt-datocms#path:packages/base",
-    "@kt-nuxt-datocms/i18n": "github:bebejane/kt-nuxt-datocms#path:packages/i18n"
+    "vue-router": "^4.5.1"
   },
-  "packageManager": "pnpm@10.18.2+sha512.9fb969fa749b3ade6035e0f109f0b8a60b5d08a1a87fdf72e337da90dcc93336e2280ca4e44f2358a649b83c17959e9993e777c2080879f3801e6f0d999ad3dd",
+  "packageManager": "pnpm@10.18.3",
   "devDependencies": {
     "ts-node": "^10.9.2",
     "typescript": "^5.9.3",

@@ -5,8 +5,8 @@ const localLayersDir = "/Users/bebejane/Projects/kt-nuxt-datocms";
 export default defineNuxtConfig({
   $production: {
     extends: [
-      ["github:bebejane/kt-nuxt-datocms#path:packages/i18n"],
-      ["github:bebejane/kt-nuxt-datocms#path:packages/base"],
+      ["github:bebejane/kt-nuxt-datocms/packages/i18n"],
+      ["github:bebejane/kt-nuxt-datocms/packages/base"],
     ],
   },
   $development: {
