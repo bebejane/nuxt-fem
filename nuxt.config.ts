@@ -28,6 +28,7 @@ export default defineNuxtConfig({
       link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
     },
   },
+
   modules: [
     "@nuxt/eslint",
     "reka-ui/nuxt",

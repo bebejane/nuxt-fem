@@ -1,4 +1,5 @@
 <script setup>
+  definePageMeta({ middleware: ["auth"] });
   const { loggedIn, user, session, clear } = useUserSession();
 </script>
 
