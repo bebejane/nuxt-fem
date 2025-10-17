@@ -13,6 +13,7 @@ export default defineNuxtConfig({
     extends: [
       `${localLayersDir}/packages/i18n`,
       `${localLayersDir}/packages/base`,
+      `${localLayersDir}/packages/dev`,
     ],
   },
   css: ["~/assets/styles/index.scss"],
