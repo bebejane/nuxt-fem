@@ -28,7 +28,13 @@ export default defineNuxtConfig({
       link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
     },
   },
-  modules: ["@nuxt/eslint", "reka-ui/nuxt", "@pinia/nuxt", "@vueuse/nuxt"],
+  modules: [
+    "@nuxt/eslint",
+    "reka-ui/nuxt",
+    "@pinia/nuxt",
+    "@vueuse/nuxt",
+    "nuxt-auth-utils",
+  ],
   i18n: {
     baseUrl: "http://localhost:3000",
     defaultLocale: "en",
@@ -62,4 +68,5 @@ export default defineNuxtConfig({
       },
     },
   },
+  auth: {},
 });

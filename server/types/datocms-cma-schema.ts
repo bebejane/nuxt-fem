@@ -78,6 +78,18 @@ export type Config = ItemTypeDefinition<
     };
   }
 >;
+export type User = ItemTypeDefinition<
+  EnvironmentSettings,
+  'BmmC_204Q2q80pakRIUNhA',
+  {
+    email: {
+      type: 'string';
+    };
+    password: {
+      type: 'string';
+    };
+  }
+>;
 export type Start = ItemTypeDefinition<
   EnvironmentSettings,
   'EDSrTw81QlK2PiluP8Fnsw',
@@ -170,6 +182,7 @@ export type AnyModel =
   | Post
   | ExternalLink
   | Config
+  | User
   | Start
   | Price
   | Product
