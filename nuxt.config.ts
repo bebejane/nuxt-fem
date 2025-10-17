@@ -1,11 +1,19 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 
+const localLayersDir = "/Users/bebejane/Projects/kt-nuxt-datocms";
+
 export default defineNuxtConfig({
   $production: {
-    extends: [["github:bebejane/kt-nuxt-datocms"]],
+    extends: [
+      ["github:bebejane/kt-nuxt-datocms#path:packages/i18n"],
+      ["github:bebejane/kt-nuxt-datocms#path:packages/base"],
+    ],
   },
   $development: {
-    extends: ["/Users/bebejane/Projects/kt-nuxt-datocms"],
+    extends: [
+      `${localLayersDir}/packages/i18n`,
+      `${localLayersDir}/packages/base`,
+    ],
   },
   css: ["~/assets/styles/index.scss"],
   app: {
@@ -19,13 +27,7 @@ export default defineNuxtConfig({
       link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
     },
   },
-  modules: [
-    "@nuxt/eslint",
-    "reka-ui/nuxt",
-    "@pinia/nuxt",
-    "@vueuse/nuxt",
-    "@nuxtjs/i18n",
-  ],
+  modules: ["@nuxt/eslint", "reka-ui/nuxt", "@pinia/nuxt", "@vueuse/nuxt"],
   i18n: {
     baseUrl: "http://localhost:3000",
     defaultLocale: "en",
