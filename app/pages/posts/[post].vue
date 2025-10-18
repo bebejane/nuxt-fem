@@ -4,30 +4,19 @@
   const localeRoute = useLocaleRoute();
   const slug = localeRoute("posts-post").params.post;
 
-  const { data, error, pending, status } = await useApiQuery<
-    PostQuery,
-    PostQueryVariables
-  >(`post-${locale}`, PostDocument, {
-    variables: { slug, locale },
-  });
-
-  const post = data?.value?.post;
+  const { post, error, pending } = await useApiQuery(PostDocument, { variables: { slug, locale } }, `post-${locale}`);
 
   setI18nParams({
     en: { post: post?.slugs?.find((s) => s.locale === "en")?.value },
     sv: { post: post?.slugs?.find((s) => s.locale === "sv")?.value },
   });
-  console.log(post?.structuredContent);
 </script>
 
 <template>
   <div :class="$style.post">
     <div v-if="pending">Loading...</div>
-    <div v-else-if="status === 'error'">Error: {{ error?.message }}</div>
-    <div
-      v-if="post !== null && post?.image?.responsiveImage"
-      :class="$style.post"
-    >
+    <div v-else-if="error">Error: {{ error?.message }}</div>
+    <div v-if="post !== null && post?.image?.responsiveImage" :class="$style.post">
       <h1>{{ post.title }}</h1>
       <Image
         :class="$style['image-wrap']"
@@ -36,11 +25,7 @@
         :data="post.image.responsiveImage"
       />
     </div>
-    <Markdown
-      v-if="post?.content"
-      :source="post.content"
-      :class="$style.content"
-    />
+    <Markdown v-if="post?.content" :source="post.content" :class="$style.content" />
 
     <h3>Structured text</h3>
     <StructuredText :data="post?.structuredContent as any" />
