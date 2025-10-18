@@ -35,6 +35,7 @@ export default defineNuxtConfig({
     "@pinia/nuxt",
     "@vueuse/nuxt",
     "nuxt-auth-utils",
+    "@bicou/nuxt-urql",
   ],
   i18n: {
     baseUrl: "http://localhost:3000",
@@ -70,4 +71,18 @@ export default defineNuxtConfig({
     },
   },
   auth: {},
+  urql: {
+    endpoint: "https://graphql.datocms.com",
+    ssr: {
+      endpoint: "https://graphql.datocms.com",
+      key: "urql",
+    },
+    client: {
+      fetchOptions: {
+        headers: {
+          Authorization: `Bearer ${process.env.PUBLIC_DATOCMS_API_TOKEN}`,
+        },
+      },
+    },
+  },
 });

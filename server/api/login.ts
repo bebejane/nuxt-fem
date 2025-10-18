@@ -1,6 +1,5 @@
 import { defineEventHandler } from "#imports";
 import { buildClient } from "@datocms/cma-client";
-import type { User } from "../types/datocms-cma-schema";
 
 export default defineEventHandler(async (event) => {
   const client = buildClient({
